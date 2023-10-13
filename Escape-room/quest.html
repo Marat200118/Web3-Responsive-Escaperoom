@@ -20,14 +20,40 @@
 
 <body>
   <main>
-
+    <div class="quest-steps">
+      <div class="quest-step" data-step="1">
+        <img src="https://cdn-icons-png.flaticon.com/512/3156/3156162.png" alt="Robber" class="robber visible">
+        <div class="hint-icon">i
+          <div class="hint-text">Hint for step 1</div>
+        </div>
+      </div>
+      <div class="quest-step" data-step="2">
+        <img src="https://cdn-icons-png.flaticon.com/512/3156/3156162.png" alt="Robber" class="robber">
+        <div class="hint-icon">i
+          <div class="hint-text">Hint for step 2</div>
+        </div>
+      </div>
+      <div class="quest-step" data-step="3">
+        <div class="hint-icon">i
+          <div class="hint-text">Hint for step 3</div>
+        </div>
+      </div>
+      <div class="quest-step" data-step="4">
+        <div class="hint-icon">i
+          <div class="hint-text">Hint for step 4</div>
+        </div>
+      </div>
+    </div>
+    <div class="digit-display">
+      <span class="hidden-digit-3">3</span>
+    </div>
   </main>
-  <footer>
+  <footer class="quest--footer">
     <form action="">
-      <input type="text" placeholder="0" pattern="1" required size="1">
-      <input type="text" placeholder="0" pattern="2" required size="1">
       <input type="text" placeholder="0" pattern="3" required size="1">
-      <input type="text" placeholder="0" pattern="4" required size="1">
+      <input type="text" placeholder="0" pattern="9" required size="1">
+      <input type="text" placeholder="0" pattern="5" required size="1">
+      <input type="text" placeholder="0" pattern="2" required size="1">
       <button type="submit">Open</button>
     </form>
   </footer>
