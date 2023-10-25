@@ -198,7 +198,7 @@ footer {
   margin: 1rem 0;
 }
 
-.hidden-digit-3 {
+.hidden-digit-3, .hidden-digit-9 {
   visibility: hidden;
 }
 
@@ -207,6 +207,12 @@ footer {
     flex-direction: column;
   }
   [data-theme="dark"] .hidden-digit-3 {
+    visibility: visible;
+  }
+}
+
+@media print and (orientation: portrait) {
+  .hidden-digit-9 {
     visibility: visible;
   }
 }
@@ -301,7 +307,6 @@ footer {
 [data-theme="dark"] .story p {
   color: var(--light-accent);
 }
-
 
 .test{
   color: #21c726;

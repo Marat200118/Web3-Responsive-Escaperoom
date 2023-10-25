@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputFields = document.querySelectorAll('input[type="text"]');
   const firstRobber = questSteps[0].querySelector(".robber");
   const secondRobber = questSteps[1].querySelector(".robber");
+  const thirdRobber = questSteps[2].querySelector(".robber"); // Fixed the indexing here
 
   digit3.addEventListener("click", function () {
     inputFields[0].value = "3";
@@ -15,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
       firstRobber.classList.remove("visible");
       secondRobber.classList.add("visible");
       digit3.style.display = "none";
+    }
+  });
+
+  inputFields[1].addEventListener("input", function () {
+    if (inputFields[1].value == "9") {
+      questSteps[1].classList.add("completed");
+      secondRobber.classList.remove("visible");
+      thirdRobber.classList.add("visible");
     }
   });
 });
