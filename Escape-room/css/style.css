@@ -99,6 +99,7 @@ button {
 button:hover{
   color: var(--dark);
   background-color: var(--primary-light);
+  transition: all .3s ease-in-out;
 }
 
 button:focus {
@@ -241,7 +242,6 @@ footer {
   width: 15rem;
   height: 15rem;
   border-radius: 50%;
-  /* background-color: #555; */
   border: solid 2px var(--primary);
   display: flex;
   align-items: center;
@@ -296,10 +296,13 @@ footer {
 
 .robber {
   visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 
 .robber.visible {
   visibility: visible;
+  opacity: 1;
 }
 
 [data-theme="dark"] body {
@@ -323,4 +326,8 @@ footer {
 .test{
   color: #21c726;
   background-color: #c63c51;
+}
+
+.quest-step:has(.robber.visible) {
+  border: .3rem solid red;
 }
