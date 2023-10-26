@@ -198,7 +198,7 @@ footer {
   margin: 1rem 0;
 }
 
-.hidden-digit-3, .hidden-digit-9 {
+.hidden-digit-3, .hidden-digit-9, .hidden-digit-5, .hidden-digit-2 {
   visibility: hidden;
 }
 
@@ -213,6 +213,18 @@ footer {
 
 @media print and (orientation: portrait) {
   .hidden-digit-9 {
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (prefers-contrast: more) {
+  .hidden-digit-5 {
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) and (forced-colors: active) {
+  .hidden-digit-2 {
     visibility: visible;
   }
 }
