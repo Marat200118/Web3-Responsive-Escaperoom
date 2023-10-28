@@ -53,3 +53,11 @@ document.querySelector(".themeButton").addEventListener("click", function () {
     document.documentElement.setAttribute("data-theme", "light");
   }
 });
+
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  document.querySelector(".success-modal").style.display = "flex";
+  setTimeout(function () {
+    window.location.href = "index.html";
+  }, 5000);
+});

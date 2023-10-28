@@ -331,3 +331,42 @@ footer {
 .quest-step:has(.robber.visible) {
   border: .3rem solid red;
 }
+
+.success-message.show {
+  display: block;
+  animation: scaleInFade 0.8s forwards;
+}
+
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.success-content p {
+  font-size: 3rem;
+  color: var(--primary);
+  animation: appearText 5s forwards;
+}
+
+@keyframes appearText {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
