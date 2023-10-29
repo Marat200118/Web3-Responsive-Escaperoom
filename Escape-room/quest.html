@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
@@ -14,43 +14,64 @@
     href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap"
     rel="stylesheet">
 </head>
-<header class="header quest--header">
-  <div class="theme-toggle">
-    <button class="themeButton">Toggle Theme</button>
-  </div>
-</header>
 
 <body>
+  <header class="header quest--header">
+    <div class="theme-toggle">
+      <button class="themeButton">Toggle Theme</button>
+    </div>
+  </header>
+
   <main>
     <div class="quest-steps">
       <div class="quest-step" data-step="1">
         <img src="https://cdn-icons-png.flaticon.com/512/3156/3156162.png" alt="Robber" class="robber visible">
         <div class="hint-icon">i
-          <div class="hint-text">It seems that to get to the emergency door<br> you need to get through a very <strong>narrow</strong>,
-            <strong>dark</strong> passage</div>
+          <div class="hint-text">It seems that to get to the emergency door<br> you need to get through a very
+            <strong>narrow</strong>,
+            <strong>dark</strong> passage
+          </div>
         </div>
       </div>
       <div class="quest-step" data-step="2">
         <img src="https://cdn-icons-png.flaticon.com/512/3156/3156162.png" alt="Robber" class="robber">
         <div class="hint-icon">i
-          <div class="hint-text">Hint for step 2</div>
+          <div class="hint-text">Okay, We found the first digit for the code, but what is the second? <br> Wait... What
+            is this? <strong>printed</strong> <strong>portrait</strong>, can be the hint!</div>
         </div>
       </div>
       <div class="quest-step" data-step="3">
+        <img src="https://cdn-icons-png.flaticon.com/512/3156/3156162.png" alt="Robber" class="robber">
         <div class="hint-icon">i
-          <div class="hint-text">Hint for step 3</div>
+          <div class="hint-text">Well, we are almost here, but I how can we find the 3rd digit?<br> I will wear my
+            <strong>contrast</strong> sunglasses and try to find the hint, also <strong>don't move</strong>, the police
+            can see us!
+          </div>
         </div>
       </div>
       <div class="quest-step" data-step="4">
+        <img src="https://cdn-icons-png.flaticon.com/512/3156/3156162.png" alt="Robber" class="robber">
         <div class="hint-icon">i
-          <div class="hint-text">Hint for step 4</div>
+          <div class="hint-text">Almost done, I can see the hint for the last digit, but I need to <br>
+            <strong>reduce a transparency</strong> of this monitor, and <strong>force a colors</strong>, so I can see
+            the digit
+          </div>
         </div>
       </div>
     </div>
     <div class="digit-display">
       <span class="hidden-digit-3">3</span>
+      <span class="hidden-digit-9">9</span>
+      <span class="hidden-digit-5">5</span>
+      <span class="hidden-digit-2">2</span>
     </div>
   </main>
+  <div class="success-modal">
+    <div class="success-content">
+      <p>You successfully escaped!</p>
+    </div>
+  </div>
+
   <footer class="quest--footer">
     <form>
       <input type="text" placeholder="0" pattern="3" required size="1">

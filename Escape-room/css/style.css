@@ -28,7 +28,7 @@ html {
 }
 
 ::selection {
-  background-color: var(--light-bg);
+  background-color: var(--primary);
   color: var(--dark);
 }
 
@@ -40,7 +40,6 @@ body {
   justify-content: space-between;
   background-color: var(--light-bg);
   color: var(--light-text);
-  accent-color: var(--light-accent);
   font-family: 'Raleway', sans-serif;
   place-items: center;
   margin-top: 3rem;
@@ -48,6 +47,7 @@ body {
 
 h1 {
   font-size: var(--step-2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   color: var(--light-text);
 }
@@ -88,17 +88,19 @@ form {
 }
 
 button {
+  border-radius: .3rem;
   grid-column: 1 / -1;
   border: dashed 1px var(--primary);
   background: none;
-  color: inherit;
   font-family: inherit;
   font-size: var(--step-1);
 }
 
 button:hover{
   color: var(--dark);
+  cursor: pointer;
   background-color: var(--primary-light);
+  transition: all .3s ease-in-out;
 }
 
 button:focus {
@@ -117,6 +119,8 @@ form:has(:invalid) button {
 }
 
 .story {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1rem;
   font-size: var(--step--1);
   text-align: center;
   margin-top: 2rem;
@@ -128,6 +132,43 @@ form:has(:invalid) button {
   margin-bottom: 1rem;
   font-weight: 500;
   color: var(--dark);
+  transition: transform 0.3s ease;
+}
+
+.story p:hover {
+  transform: scale(1.05);
+}
+
+.story p:nth-child(1) {
+  animation: subtlePulse 6s;
+  animation-delay: 1s;
+}
+
+.story p:nth-child(2) {
+  animation: subtlePulse 6s;
+  animation-delay: 3s;
+}
+
+.story p:nth-child(3) {
+  animation: subtlePulse 6s;
+  animation-delay: 5s;
+}
+
+.story p:nth-child(4) {
+  animation: subtlePulse 6s;
+  animation-delay: 7s;
+}
+
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 header {
@@ -145,6 +186,7 @@ header {
 }
 
 .themeButton {
+  border-radius: .3rem;
   border: 1px solid var(--light-accent);
   font-size: var(--step--1);
   padding: .5rem;
@@ -162,7 +204,10 @@ footer {
   align-items: center;
 }
 
-.start {
+.start-button {
+  display: inline-block;
+  text-decoration: none;
+  font-size: var(--step-1);
   font-weight: bold;
   padding: .5rem 2.5rem;
   border-radius: .5rem;
@@ -170,7 +215,7 @@ footer {
   border:none;
 }
 
-.start:hover {
+.start-button:hover {
   cursor: pointer;
   transition: all .2s ease-in-out;
   background-color: var(--primary);
@@ -198,7 +243,7 @@ footer {
   margin: 1rem 0;
 }
 
-.hidden-digit-3 {
+.hidden-digit-3, .hidden-digit-9, .hidden-digit-5, .hidden-digit-2 {
   visibility: hidden;
 }
 
@@ -207,6 +252,24 @@ footer {
     flex-direction: column;
   }
   [data-theme="dark"] .hidden-digit-3 {
+    visibility: visible;
+  }
+}
+
+@media print and (orientation: portrait) {
+  .hidden-digit-9 {
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (prefers-contrast: more) {
+  .hidden-digit-5 {
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) and (forced-colors: active) {
+  .hidden-digit-2 {
     visibility: visible;
   }
 }
@@ -223,11 +286,14 @@ footer {
   width: 15rem;
   height: 15rem;
   border-radius: 50%;
-  /* background-color: #555; */
   border: solid 2px var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.quest-step:not(.completed) {
+  transform: scale(0.95);
 }
 
 .quest-step.completed {
@@ -278,10 +344,13 @@ footer {
 
 .robber {
   visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 
 .robber.visible {
   visibility: visible;
+  opacity: 1;
 }
 
 [data-theme="dark"] body {
@@ -302,4 +371,50 @@ footer {
   color: var(--light-accent);
 }
 
+.test{
+  color: #21c726;
+  background-color: #c63c51;
+}
 
+.quest-step:has(.robber.visible) {
+  border: .3rem solid red;
+}
+
+.success-message.show {
+  display: block;
+  animation: scaleInFade 0.8s forwards;
+}
+
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.success-content p {
+  font-size: 3rem;
+  color: var(--primary);
+  animation: appearText 5s forwards;
+}
+
+@keyframes appearText {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
