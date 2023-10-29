@@ -28,7 +28,7 @@ html {
 }
 
 ::selection {
-  background-color: var(--light-bg);
+  background-color: var(--primary);
   color: var(--dark);
 }
 
@@ -40,7 +40,6 @@ body {
   justify-content: space-between;
   background-color: var(--light-bg);
   color: var(--light-text);
-  accent-color: var(--light-accent);
   font-family: 'Raleway', sans-serif;
   place-items: center;
   margin-top: 3rem;
@@ -48,6 +47,7 @@ body {
 
 h1 {
   font-size: var(--step-2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   color: var(--light-text);
 }
@@ -88,16 +88,17 @@ form {
 }
 
 button {
+  border-radius: .3rem;
   grid-column: 1 / -1;
   border: dashed 1px var(--primary);
   background: none;
-  color: inherit;
   font-family: inherit;
   font-size: var(--step-1);
 }
 
 button:hover{
   color: var(--dark);
+  cursor: pointer;
   background-color: var(--primary-light);
   transition: all .3s ease-in-out;
 }
@@ -118,6 +119,8 @@ form:has(:invalid) button {
 }
 
 .story {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1rem;
   font-size: var(--step--1);
   text-align: center;
   margin-top: 2rem;
@@ -129,6 +132,43 @@ form:has(:invalid) button {
   margin-bottom: 1rem;
   font-weight: 500;
   color: var(--dark);
+  transition: transform 0.3s ease;
+}
+
+.story p:hover {
+  transform: scale(1.05);
+}
+
+.story p:nth-child(1) {
+  animation: subtlePulse 6s;
+  animation-delay: 1s;
+}
+
+.story p:nth-child(2) {
+  animation: subtlePulse 6s;
+  animation-delay: 3s;
+}
+
+.story p:nth-child(3) {
+  animation: subtlePulse 6s;
+  animation-delay: 5s;
+}
+
+.story p:nth-child(4) {
+  animation: subtlePulse 6s;
+  animation-delay: 7s;
+}
+
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 header {
@@ -146,6 +186,7 @@ header {
 }
 
 .themeButton {
+  border-radius: .3rem;
   border: 1px solid var(--light-accent);
   font-size: var(--step--1);
   padding: .5rem;
@@ -163,7 +204,10 @@ footer {
   align-items: center;
 }
 
-.start {
+.start-button {
+  display: inline-block;
+  text-decoration: none;
+  font-size: var(--step-1);
   font-weight: bold;
   padding: .5rem 2.5rem;
   border-radius: .5rem;
@@ -171,7 +215,7 @@ footer {
   border:none;
 }
 
-.start:hover {
+.start-button:hover {
   cursor: pointer;
   transition: all .2s ease-in-out;
   background-color: var(--primary);
@@ -246,6 +290,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.quest-step:not(.completed) {
+  transform: scale(0.95);
 }
 
 .quest-step.completed {
@@ -344,7 +392,7 @@ footer {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.9);
-  display: none; /* Hidden by default */
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
